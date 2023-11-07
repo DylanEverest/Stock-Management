@@ -6,7 +6,6 @@ export default function Stockstate()
  
     return(
         <div>
-
             <Header/>
             <ContentStockState/>
         </div>
