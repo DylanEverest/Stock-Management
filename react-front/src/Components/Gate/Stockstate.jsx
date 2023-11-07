@@ -1,4 +1,4 @@
-import Footer from "../Constants/Footer/Footer";
+import ContentStockState from "../Body/ContentStockState/ContentStockState";
 import Header from "../Constants/Header/Header";
 
 export default function Stockstate() 
@@ -8,9 +8,7 @@ export default function Stockstate()
         <div>
 
             <Header/>
-
-            <Footer/>
-
+            <ContentStockState/>
         </div>
     )
     
