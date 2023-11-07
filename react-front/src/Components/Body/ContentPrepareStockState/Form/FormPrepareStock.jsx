@@ -23,7 +23,9 @@ export default function FormPrepareStock(props)
                 <div className="text-right">
                     <SubmitButton/>
                 </div>
+
             </form>
+
         </div>
     </div>
 
