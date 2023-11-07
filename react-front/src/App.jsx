@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import OutStockState from "./Components/Gate/OutStockState";
 import Stockstate from "./Components/Gate/Stockstate";
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
         <Route>
 
           <Route path="/stockstate" element={<Stockstate/>} />
+
+          <Route path="/outStockState" element={<OutStockState/>} />
 
         </Route>        
 
