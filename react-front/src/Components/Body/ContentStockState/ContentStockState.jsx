@@ -24,8 +24,6 @@ export default function ContentStockState()
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );
