@@ -1,45 +1,57 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-export default function Table(props) 
-{
+import React, { useState } from 'react';
+
+export default function Table(props) {
+    // Créez un état pour stocker les données de la table
+    // const [tableData, setTableData] = useState([
+    //     {
+    //         id: 1,
+    //         dateDebut: '2023-01-01',
+    //         dateFin: '2023-01-10',
+    //         article: 'Article 1',
+    //         magasin: 'Magasin A',
+    //         quantiteInitiale: 100,
+    //         reste: 50,
+    //     },
+    //     {
+    //         id: 2,
+    //         dateDebut: '2023-02-01',
+    //         dateFin: '2023-02-15',
+    //         article: 'Article 2',
+    //         magasin: 'Magasin B',
+    //         quantiteInitiale: 150,
+    //         reste: 75,
+    //     },
+    //     // Ajoutez d'autres données ici
+    // ]);
 
     return (
-        <div class="widget has-shadow">
-        <div class="widget-header bordered no-actions d-flex align-items-center">
-            <h4>Border</h4>
-        </div>
-        <div class="widget-body">
-            <div class="table-responsive">
-                <table class="table table-bordered mb-0">
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Customer Name</th>
-                            <th>Country</th>
-                            <th>Ship Date</th>
-                            <th><span >Status</span></th>
-                            <th>Order Total</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="text-primary">054-01-FR</span></td>
-                            <td>Lori Baker</td>
-                            <td>US</td>
-                            <td>10/21/2017</td>
-                            <td><span ><span class="badge-text badge-text-small info">Paid</span></span></td>
-                            <td>$139.45</td>
-                            <td class="td-actions">
-                                <a><i class="la la-edit edit"></i></a>
-                                <a><i class="la la-close delete"></i></a>
-                            </td>
-                        </tr>
+        <div className="widget has-shadow">
+            <div className="widget-header bordered no-actions d-flex align-items-center">
+                <h4>Border</h4>
+            </div>
+            <div className="widget-body">
+                <div className="table-responsive">
+                    <table className="table table-bordered mb-0">
+                        <thead>
+                            <tr>
+                                {props.columnHeaders.map((header, index) => (
+                                    <th key={index}>{header}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {props.tableData.map((row) => (
+                                <tr key={row.id}>
+                                    {props.columnHeaders.map((header, index) => (
+                                        <td key={index}>{row[header]}</td>
+                                    ))}
 
-                    </tbody>
-                </table>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    )
-    
+    );
 }
