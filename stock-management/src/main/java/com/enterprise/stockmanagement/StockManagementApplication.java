@@ -1,4 +1,4 @@
-package com.enterprise.stockmanagement.runner;
+package com.enterprise.stockmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
