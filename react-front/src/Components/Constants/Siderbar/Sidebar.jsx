@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Sidebar()
 {
 
@@ -5,8 +7,8 @@ export default function Sidebar()
         <div class="default-sidebar">
             <nav class="side-navbar box-scroll sidebar-scroll" tabindex="1" >
                 <ul class="list-unstyled">
-                    <li><a href="components-widgets.html"><i class="la la-spinner"></i><span>Stock</span></a></li>
-                    <li><a href="components-widgets.html"><i class="la la-spinner"></i><span>Sortie de stock</span></a></li>
+                    <li> <Link to="/prepareStockState"> <i class="la la-spinner"></i><span>Stock</span> </Link></li>
+                    <li><Link to="/outStockState"> <i class="la la-spinner"></i><span>Sortie de stock</span> </Link> </li>
                 </ul>
             </nav>
         </div>

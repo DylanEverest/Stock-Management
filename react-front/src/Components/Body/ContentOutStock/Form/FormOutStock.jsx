@@ -1,3 +1,6 @@
+import SubmitButton from "../../../Constants/Buttons/SubmitButtons";
+import SelectForm from "../../../Constants/FormTools/Select";
+
 export default function FormOutStock(props) 
 {
 
@@ -19,28 +22,12 @@ export default function FormOutStock(props)
                         </div>
                     </div>
 
-                    <div class="form-group row mb-5">
-                        <label class="col-lg-3 form-control-label">Articles</label>
-                        <div class="col-lg-9 select mb-3">
-                            <select name="account" class="custom-select form-control">
-                                <option>option 1</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                            </select>
-                        </div>
-                        
-                    </div>
-                    <div class="form-group row mb-5">
-                            <label class="col-lg-3 form-control-label">Magasin</label>
-                            <div class="col-lg-9 select mb-3">
-                                <select name="account" class="custom-select form-control">
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                </select>
-                            </div>
+                    <SelectForm label={"Articles"} option={[]}/>
+                    
+                    <SelectForm label={"Magasins"} option={[]}/>
+                    
+                    <div className="text-right">
+                        <SubmitButton/>
                     </div>
                 </form>
             </div>
