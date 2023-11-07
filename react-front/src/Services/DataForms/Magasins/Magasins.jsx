@@ -1,7 +1,7 @@
 export default function Magasins() 
 {
 
-    const magasins = ["article1", "article2", "article3", "article"] ;
+    const magasins = ["magasins1", "magasins2", "magasins3", "magasins"] ;
  
     return magasins ;
 

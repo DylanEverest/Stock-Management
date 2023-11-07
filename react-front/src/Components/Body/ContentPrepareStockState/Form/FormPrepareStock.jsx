@@ -1,3 +1,5 @@
+import Articles from "../../../../Services/DataForms/Articles/Articles";
+import Magasins from "../../../../Services/DataForms/Magasins/Magasins";
 import SubmitButton from "../../../Constants/Buttons/SubmitButtons";
 import DateInput from "../../../Constants/FormTools/DateInput";
 import SelectForm from "../../../Constants/FormTools/Select";
@@ -16,9 +18,9 @@ export default function FormPrepareStock(props)
 
                 <DateInput label={"Date fin"} />
 
-                <SelectForm label={"Articles"} option={[]}/>
+                <SelectForm label={"Articles"} option={Articles()}/>
                     
-                <SelectForm label={"Magasins"} option={[]}/>           
+                <SelectForm label={"Magasins"} option={Magasins()}/>           
                 
                 <div className="text-right">
                     <SubmitButton/>
