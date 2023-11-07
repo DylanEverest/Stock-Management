@@ -5,8 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Articles")
 public class Articles 
 {
 
@@ -20,7 +22,7 @@ public class Articles
     private MethodType methodType ;
 
 
-    
+
     public String getArticlesID() {
         return articlesID;
     }
