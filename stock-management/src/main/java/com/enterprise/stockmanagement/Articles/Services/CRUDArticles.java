@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.enterprise.stockmanagement.Articles.Entities.Articles;
 import com.enterprise.stockmanagement.Articles.Repositories.ArticlesRepository;
+import com.enterprise.stockmanagement.Articles.Services.Exception.ArticleFamilyNotFoundException;
 
 @Service
 public class CRUDArticles 
@@ -54,5 +55,17 @@ public class CRUDArticles
         articlesToUpdate.setNameArticles(articles.getNameArticles());        
 
         postArticles(articlesToUpdate) ;
+    }
+
+    public Articles getByName(String articlesName) throws ArticleFamilyNotFoundException
+    {
+        try 
+        {
+            return articlesRepository.findArticlesLikeName(articlesName).get();
+        } 
+        catch (Exception e) 
+        {
+            throw new ArticleFamilyNotFoundException("Could not find the articles " + articlesName );
+        }
     }
 }
