@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.enterprise.stockmanagement.Store.Entities.Store;
 import com.enterprise.stockmanagement.Store.Repositories.StoreRepository;
+import com.enterprise.stockmanagement.Store.Services.Exception.StoreNameNotFoundException;
 
 @Service
 public class CRUDStore {
@@ -53,5 +54,18 @@ public class CRUDStore {
         storeToUpdate.setStoreName(store.getStoreName());        
 
         postStore(storeToUpdate) ;
+    }
+
+
+    public Store getByName(String storeName) throws StoreNameNotFoundException
+    {
+        try 
+        {
+            return storeRepository.findByStoreName(storeName).get();
+        } 
+        catch (Exception e) 
+        {
+            throw new StoreNameNotFoundException("Could not find the store " + storeName );
+        }
     }
 }
