@@ -3,10 +3,12 @@ package com.enterprise.stockmanagement.Store.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.enterprise.stockmanagement.Store.Entities.Store;
 import com.enterprise.stockmanagement.Store.Repositories.StoreRepository;
 
+@Service
 public class CRUDStore {
     
     @Autowired
