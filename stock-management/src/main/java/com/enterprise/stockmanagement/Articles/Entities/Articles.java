@@ -15,6 +15,9 @@ public class Articles
     @Id   
     private String articlesID ;
 
+    @Column(length=250,nullable =  false) 
+    private String family ;   
+
     @Column(length = 250 ,nullable = false)
     private String nameArticles ;
 
@@ -46,5 +49,12 @@ public class Articles
     public void setMethodType(MethodType methodType) {
         this.methodType = methodType;
     }
+    
+    public String getFamily() {
+        return family;
+    }
 
+    public void setFamily(String family) {
+        this.family = family;
+    }
 }
