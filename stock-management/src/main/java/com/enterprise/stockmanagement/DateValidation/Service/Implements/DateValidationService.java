@@ -7,7 +7,8 @@ public interface DateValidationService <T>
 
     public T isValid(String date) throws DateUnvalidExcetion;
 
-    public boolean isSuccessive(T date1 , T date2) ;
+    public void checkSuccessive(T date1 , T date2) throws NotSuccessiveDate;
 
+    public void checkSuccessive(String date1 , String date2) throws DateUnvalidExcetion , NotSuccessiveDate ;
     
 }
