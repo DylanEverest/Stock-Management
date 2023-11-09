@@ -42,7 +42,7 @@ public class FormStockStatusModel
         Timestamp timestamp1 = validation.isValid(beginDate);
         Timestamp timestamp2 = validation.isValid(endDate);
 
-        validation.checkSuccessive(timestamp1,timestamp2);
+        validation.checkSuccessiveOrEqual(timestamp1,timestamp2);
 
         setBeginDate(timestamp1);
         setEndDate(timestamp2);
