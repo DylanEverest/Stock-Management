@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.enterprise.stockmanagement.Articles.DTO.ArticlesDTO;
@@ -17,7 +16,6 @@ import com.enterprise.stockmanagement.Articles.Entities.Articles;
 import com.enterprise.stockmanagement.Articles.Services.CRUDArticles;
 
 @RestController
-@RequestMapping("/StockApplication")
 public class ArticlesController 
 {
 
