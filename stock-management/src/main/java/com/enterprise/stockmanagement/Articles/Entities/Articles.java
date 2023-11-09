@@ -1,5 +1,7 @@
 package com.enterprise.stockmanagement.Articles.Entities;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+@Component
 @Entity
 @Table(name = "Articles")
 public class Articles 
@@ -16,7 +19,7 @@ public class Articles
 
     @Id   
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String articlesID ;
+    private Integer articlesID ;
 
     @Column(length=250,nullable =  false) 
     private String family ;   
@@ -29,11 +32,11 @@ public class Articles
 
 
 
-    public String getArticlesID() {
+    public Integer getArticlesID() {
         return articlesID;
     }
 
-    public void setArticlesID(String articlesID) {
+    public void setArticlesID(Integer articlesID) {
         this.articlesID = articlesID;
     }
 

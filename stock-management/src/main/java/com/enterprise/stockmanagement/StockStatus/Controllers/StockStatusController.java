@@ -1,6 +1,7 @@
 package com.enterprise.stockmanagement.StockStatus.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,7 @@ public class StockStatusController
     @Autowired 
     StockStatusService stockStatusService;
 
+    @PostMapping("/stockStatus")
     public StockStatusDTO getStockStatus(@RequestBody FormStockStatusDTO formStatusDTO) 
     {
 
