@@ -14,6 +14,6 @@ public interface StoreRepository extends JpaRepository<Store,Integer>
 {
     Optional<Store> findByStoreName(@Param("storeName") String storeName);    
 
-    @Query(value = "SELECT 1 <= count(a.name_articles) FROM (SELECT * FROM articles u WHERE u.name_articles LIKE %:storeName%) as a", nativeQuery = true)
+    @Query(value = "SELECT 1 <= count(a.store_name) FROM (SELECT * FROM store u WHERE u.store_name LIKE %:storeName%) as a", nativeQuery = true)
     boolean existsStoreName(@Param("storeName") String storeName);
 }
