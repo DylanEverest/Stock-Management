@@ -8,7 +8,8 @@ public class StockStatusService
 
     public StockStatusModel getStockStatus(FormStockStatusModel formStockStatusModel) {
         
-        return null ;
+        // for the moment
+        return new StockStatusModel() ;
     }
 
 
