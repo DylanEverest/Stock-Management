@@ -15,7 +15,7 @@ public interface ArticlesRepository extends JpaRepository<Articles, Integer>{
     @Query("SELECT a FROM Articles a WHERE a.nameArticles LIKE :family")
     Optional<Articles> findArticlesLikeName(@Param("family") String family);
 
-    @Query(value = "SELECT 1 <= count(a.name_articles) FROM (SELECT * FROM articles u WHERE u.name_articles LIKE %:family%) as a", nativeQuery = true)
+    @Query(value = "SELECT 1 <= count(a.family) FROM (SELECT * FROM articles u WHERE u.family LIKE %:family%) as a", nativeQuery = true)
     boolean existsFamily(@Param("family") String family);
 
 
