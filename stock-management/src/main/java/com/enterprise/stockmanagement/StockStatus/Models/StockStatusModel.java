@@ -1,64 +1,35 @@
 package com.enterprise.stockmanagement.StockStatus.Models;
 
-import java.sql.Timestamp;
-
 import org.springframework.stereotype.Component;
 
-import com.enterprise.stockmanagement.Articles.Entities.Articles;
-import com.enterprise.stockmanagement.Store.Entities.Store;
-
 @Component
-public class StockStatusModel 
+public class StockStatusModel extends FormStockStatusModel
 {
-    private Timestamp beginDate;
+    private Double finalQuantity;
 
-    private Timestamp endDate;
-
-    private Articles article ;
-    
-    private Store store;
+    private Double initialQuantity ;
 
 
 
-    public Timestamp getBeginDate() 
+
+    public Double getFinalQuantity() 
     {
-        return beginDate;
+        return finalQuantity;
     }
 
-    public void setBeginDate(Timestamp beginDate) 
+    public void setFinalQuantity(Double finalQuantity) 
     {
-        this.beginDate = beginDate;
+        this.finalQuantity = finalQuantity;
     }
 
-    public Timestamp getEndDate() 
+    public Double getInitialQuantity() 
     {
-        return endDate;
+        return initialQuantity;
     }
 
-    public void setEndDate(Timestamp endDate) 
+    public void setInitialQuantity(Double initialQuantity) 
     {
-        this.endDate = endDate;
+        this.initialQuantity = initialQuantity;
     }
-
-    public Articles getArticle() 
-    {
-        return article;
-    }
-
-    public void setArticle(Articles article) 
-    {
-        this.article = article;
-    }
-
-    public Store getStore() 
-    {
-        return store;
-    }
-
-    public void setStore(Store store) 
-    {
-        this.store = store;
-    }
-    
     
 }
