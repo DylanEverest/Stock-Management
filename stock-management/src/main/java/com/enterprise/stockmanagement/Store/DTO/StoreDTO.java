@@ -11,22 +11,31 @@ import com.enterprise.stockmanagement.Store.Entities.Store;
 public class StoreDTO 
 {
     @Autowired
-    Store [] stores ;    
+    Store [] listStore ;    
+
+    Store store ;
 
     String errors ;
 
-    public Store[] getStore() {
-        return stores;
+    public void setStoreAsList(List<Store> list)
+    {
+        listStore = list.toArray(new Store[list.size()]);
     }
 
-    public void setStore(Store stores) {
-        this.stores[0] = stores;
+    public Store[] getListStore() {
+        return listStore;
     }
-    public void setStore(Store[] stores) {
-        this.stores = stores;
+
+    public void setListStore(Store[] listStore) {
+        this.listStore = listStore;
     }
-    public void setStore(List<Store> stores) {
-        this.stores = stores.toArray(new Store[stores.size()]);
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     public String getErrors() {

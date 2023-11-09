@@ -32,7 +32,7 @@ public class StoreController
     public StoreDTO getStores()
     {
         List<Store> stores = crudStore.getStoreList() ;
-        storesDTO.setStore(stores);
+        storesDTO.setStoreAsList(stores);
         return storesDTO ;
     }
 
@@ -48,7 +48,7 @@ public class StoreController
     @PostMapping(path = "/stores")
     public StoreDTO saveStore(@RequestBody StoreDTO storesDTO)
     {
-        crudStore.postStore(storesDTO.getStore()[0]);
+        crudStore.postStore(storesDTO.getStore());
 
         return storesDTO;
 
@@ -57,7 +57,7 @@ public class StoreController
     @PutMapping(path ="/stores/{id}")
     public StoreDTO updateStore(@PathVariable("id") final Integer id , @RequestBody StoreDTO storesDTO)
     {
-        crudStore.updateStore(id, storesDTO.getStore()[0]);
+        crudStore.updateStore(id, storesDTO.getStore());
 
         return storesDTO;
     }
