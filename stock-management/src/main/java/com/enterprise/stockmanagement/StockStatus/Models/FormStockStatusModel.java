@@ -45,7 +45,7 @@ public class FormStockStatusModel
         this.beginDate = beginDate;
     }
 
-    private Timestamp getEndDate() {
+    public Timestamp getEndDate() {
         return endDate;
     }
 
