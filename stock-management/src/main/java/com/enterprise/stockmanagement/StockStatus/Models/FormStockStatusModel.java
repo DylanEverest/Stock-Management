@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 import org.springframework.stereotype.Component;
 
 import com.enterprise.stockmanagement.Articles.Entities.Articles;
+import com.enterprise.stockmanagement.DateValidation.Service.Implements.NotSuccessiveDate;
+import com.enterprise.stockmanagement.DateValidation.Service.Implements.Exception.DateUnvalidExcetion;
+import com.enterprise.stockmanagement.DateValidation.Service.Timestamp.TimestampValidation;
 import com.enterprise.stockmanagement.Store.Entities.Store;
 
 @Component
@@ -23,11 +26,26 @@ public class FormStockStatusModel
         return beginDate;
     }
 
-    public void setBeginDate(Timestamp beginDate) {
+    // controll
+    public void setBeginDateAndSetEndDate(String beginDate , String endDate) throws DateUnvalidExcetion, NotSuccessiveDate 
+    {
+        TimestampValidation validation = new TimestampValidation();
+
+        Timestamp timestamp1 = validation.isValid(beginDate);
+        Timestamp timestamp2 = validation.isValid(endDate);
+
+        validation.checkSuccessive(timestamp1,timestamp2);
+
+        setBeginDate(timestamp1);
+        setEndDate(timestamp2);
+    }
+
+    private void setBeginDate(Timestamp beginDate) {
+
         this.beginDate = beginDate;
     }
 
-    public Timestamp getEndDate() {
+    private Timestamp getEndDate() {
         return endDate;
     }
 
