@@ -1,6 +1,8 @@
 package com.enterprise.stockmanagement.DateValidation.Service.Timestamp;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import com.enterprise.stockmanagement.DateValidation.Service.Implements.DateValidationService;
 import com.enterprise.stockmanagement.DateValidation.Service.Implements.NotSuccessiveDate;
@@ -13,7 +15,11 @@ public class TimestampValidation implements DateValidationService<Timestamp>{
     {
         try 
         {
-            return Timestamp.valueOf(date) ;
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+
+            java.util.Date newDate = format.parse(date);
+
+            return new Timestamp(newDate.getTime());
             
         } catch (Exception e) 
         {
