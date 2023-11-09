@@ -7,7 +7,7 @@ import com.enterprise.stockmanagement.DateValidation.Service.Implements.DateVali
 public class TimestampValidation implements DateValidationService<Timestamp>{
 
     @Override
-    public boolean isValid() {
+    public boolean isValid(Timestamp date) {
         throw new UnsupportedOperationException("Unimplemented method 'isValid'");
     }
 
