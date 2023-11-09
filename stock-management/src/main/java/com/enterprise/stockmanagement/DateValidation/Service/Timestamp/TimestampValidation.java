@@ -35,6 +35,14 @@ public class TimestampValidation implements DateValidationService<Timestamp>{
         }
     }
 
+
+    @Override
+    public void checkSuccessiveOrEqual(Timestamp timestamp1, Timestamp timestamp2) throws NotSuccessiveDate {
+        if (timestamp2.before(timestamp1) && !timestamp2.equals(timestamp1)) {
+            throw new NotSuccessiveDate(timestamp1 + " and " + timestamp2 + " are not successive or equal");
+        }
+    }
+
     @Override
     public void checkSuccessive(String date1, String date2) throws DateUnvalidExcetion, NotSuccessiveDate {
         Timestamp date01 = isValid(date1);

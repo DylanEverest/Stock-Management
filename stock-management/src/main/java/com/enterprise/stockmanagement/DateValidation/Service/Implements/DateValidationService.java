@@ -10,5 +10,6 @@ public interface DateValidationService <T>
     public void checkSuccessive(T date1 , T date2) throws NotSuccessiveDate;
 
     public void checkSuccessive(String date1 , String date2) throws DateUnvalidExcetion , NotSuccessiveDate ;
-    
+
+    public void checkSuccessiveOrEqual(T timestamp1, T timestamp2) throws NotSuccessiveDate;
 }
