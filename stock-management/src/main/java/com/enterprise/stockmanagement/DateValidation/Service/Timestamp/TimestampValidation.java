@@ -1,4 +1,4 @@
-package com.enterprise.stockmanagement.DateValidation.Service;
+package com.enterprise.stockmanagement.DateValidation.Service.Timestamp;
 
 import java.sql.Timestamp;
 
@@ -7,8 +7,16 @@ import com.enterprise.stockmanagement.DateValidation.Service.Implements.DateVali
 public class TimestampValidation implements DateValidationService<Timestamp>{
 
     @Override
-    public Timestamp isValid(String date) {
-        throw new UnsupportedOperationException("Unimplemented method 'isValid'");
+    public Timestamp isValid(String date) throws TimestampUnvalidExcetion
+    {
+        try 
+        {
+            return Timestamp.valueOf(date) ;
+            
+        } catch (Exception e) 
+        {
+            throw new TimestampUnvalidExcetion("Invalid date format with "+date);
+        }
     }
 
     @Override
