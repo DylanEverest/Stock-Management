@@ -1,7 +1,7 @@
 package com.enterprise.stockmanagement.StockStatus.Services;
 
-import com.enterprise.stockmanagement.StockStatus.Models.FormStockStatusModel;
 import com.enterprise.stockmanagement.StockStatus.Models.StockStatusModel;
+import com.enterprise.stockmanagement.StockStatus.Models.FormStockStatusModel.FormStockStatusModel;
 
 public class StockStatusService 
 {
