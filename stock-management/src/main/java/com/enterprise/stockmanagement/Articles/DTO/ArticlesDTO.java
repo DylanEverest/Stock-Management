@@ -11,22 +11,24 @@ import com.enterprise.stockmanagement.Articles.Entities.Articles;
 public class ArticlesDTO 
 {
     @Autowired
-    Articles [] articles ;    
+    Articles [] listArticles ;    
 
     String errors ;
 
-    public Articles[] getArticles() {
-        return articles;
+    @Autowired
+    Articles articles ;
+
+    public void setArticlesAsList(List<Articles> list)
+    {
+        listArticles = list.toArray(new Articles[list.size()]);
     }
 
-    public void setArticles(Articles articles) {
-        this.articles[0] = articles;
+    public Articles[] getListArticles() {
+        return listArticles;
     }
-    public void setArticles(Articles[] articles) {
-        this.articles = articles;
-    }
-    public void setArticles(List<Articles> articles) {
-        this.articles = articles.toArray(new Articles[articles.size()]);
+
+    public void setListArticles(Articles[] listArticles) {
+        this.listArticles = listArticles;
     }
 
     public String getErrors() {
@@ -36,5 +38,14 @@ public class ArticlesDTO
     public void setErrors(String errors) {
         this.errors = errors;
     }
+
+    public Articles getArticles() {
+        return articles;
+    }
+
+    public void setArticles(Articles articles) {
+        this.articles = articles;
+    }
+
 
 }

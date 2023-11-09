@@ -32,7 +32,7 @@ public class ArticlesController
     public ArticlesDTO getArticless()
     {
         List<Articles> articles = crudArticles.getArticlesList() ;
-        articlesDTO.setArticles(articles);
+        articlesDTO.setArticlesAsList(articles);
         return articlesDTO ;
     }
 
@@ -48,7 +48,7 @@ public class ArticlesController
     @PostMapping(path = "/articles")
     public ArticlesDTO saveArticles(@RequestBody ArticlesDTO articlesDTO)
     {
-        crudArticles.postArticles(articlesDTO.getArticles()[0]);
+        crudArticles.postArticles(articlesDTO.getArticles());
 
         return articlesDTO;
 
@@ -57,7 +57,7 @@ public class ArticlesController
     @PutMapping(path ="/articles/{id}")
     public ArticlesDTO updateArticles(@PathVariable("id") final Integer id , @RequestBody ArticlesDTO articlesDTO)
     {
-        crudArticles.updateArticles(id, articlesDTO.getArticles()[0]);
+        crudArticles.updateArticles(id, articlesDTO.getArticles());
 
         return articlesDTO;
     }
