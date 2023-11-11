@@ -61,7 +61,7 @@ public class CRUDArticles
     {
         try 
         {
-            return articlesRepository.findArticlesLikeName(articlesName).get();
+            return articlesRepository.findByNameArticles(articlesName).get();
         } 
         catch (Exception e) 
         {
