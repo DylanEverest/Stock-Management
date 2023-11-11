@@ -113,8 +113,8 @@ public class Movement
     }
 
 
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setUnitPrice(String unitPrice) {
+        this.unitPrice = Double.valueOf(unitPrice) ;
     }
 
 

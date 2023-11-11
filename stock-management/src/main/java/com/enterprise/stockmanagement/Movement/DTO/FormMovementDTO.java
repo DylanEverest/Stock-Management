@@ -9,6 +9,8 @@ public class FormMovementDTO
     private String quantity;
 
     private String article ;
+
+    private String unitPrice ;
     
     private String store;
 
@@ -52,6 +54,14 @@ public class FormMovementDTO
 
     public void setErrors(String errors) {
         this.errors = errors;
+    }
+
+    public String getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(String unitPrice) {
+        this.unitPrice = unitPrice;
     }
     
 }

@@ -35,6 +35,7 @@ public class MovementController {
             movementModel.setStore(storeService.getByName(formMovementDTO.getStore()));
             movementModel.setMethodType(1);
             movementModel.setQuantity(formMovementDTO.getQuantity());
+            movementModel.setUnitPrice(formMovementDTO.getUnitPrice());
 
             movementINService.in(movementModel) ;
 
