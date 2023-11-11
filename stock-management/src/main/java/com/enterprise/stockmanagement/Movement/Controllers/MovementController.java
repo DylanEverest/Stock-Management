@@ -20,7 +20,7 @@ public class MovementController {
     @Autowired Movement movementModel ;
 
 
-    @PostMapping("in")
+    @PostMapping("/in")
     public FormMovementDTO inStock(FormMovementDTO formMovementDTO){
 
         try 
