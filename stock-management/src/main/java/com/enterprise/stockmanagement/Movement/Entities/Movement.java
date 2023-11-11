@@ -69,7 +69,13 @@ public class Movement
 
         if(!articlesRepository.existsFamily(articles)) throw new ArticlesNotFoundException("Article " + articles + " not found");
 
-        setArticles(articlesRepository.findArticlesLikeName(articles).get());
+        try {
+            setArticles(articlesRepository.findArticlesLikeName(articles).get());
+            
+        } catch (Exception e) {
+            
+            throw new ArticlesNotFoundException("Article " + articles + "not valid name");
+        }
     }
 
     public void setStore(String store) throws StoreNotFoundException 
