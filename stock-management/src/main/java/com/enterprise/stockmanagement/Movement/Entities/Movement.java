@@ -9,6 +9,7 @@ import com.enterprise.stockmanagement.Articles.Entities.Articles;
 import com.enterprise.stockmanagement.Articles.Repositories.ArticlesRepository;
 import com.enterprise.stockmanagement.DateValidation.Service.Timestamp.TimestampUnvalidExcetion;
 import com.enterprise.stockmanagement.DateValidation.Service.Timestamp.TimestampValidation;
+import com.enterprise.stockmanagement.Quantity.QuantityException;
 import com.enterprise.stockmanagement.StockStatus.Models.FormStockStatusModel.Exception.ArticlesNotFoundException;
 import com.enterprise.stockmanagement.StockStatus.Models.FormStockStatusModel.Exception.StoreNotFoundException;
 import com.enterprise.stockmanagement.Store.Entities.Store;
@@ -80,6 +81,14 @@ public class Movement
 
     }
 
+    public void setQuantity(String quantity) throws QuantityException ,NumberFormatException{
+        Double value = Double.valueOf(quantity) ;
+        if (value <=0) {
+         throw new QuantityException("Quantity must be positive");   
+        }
+        this.quantity = value;
+    }
+
 // standard
     public Integer getMovementId() {
         return movementId;
@@ -125,7 +134,5 @@ public class Movement
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
-        this.quantity = quantity;
-    }
+
 }
