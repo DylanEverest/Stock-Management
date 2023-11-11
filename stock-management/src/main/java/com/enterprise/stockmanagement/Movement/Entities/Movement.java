@@ -2,17 +2,12 @@ package com.enterprise.stockmanagement.Movement.Entities;
 
 import java.sql.Timestamp;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.enterprise.stockmanagement.Articles.Entities.Articles;
-import com.enterprise.stockmanagement.Articles.Services.CRUDArticles;
 import com.enterprise.stockmanagement.DateValidation.Service.Timestamp.TimestampUnvalidExcetion;
 import com.enterprise.stockmanagement.DateValidation.Service.Timestamp.TimestampValidation;
 import com.enterprise.stockmanagement.Quantity.QuantityException;
-import com.enterprise.stockmanagement.StockStatus.Models.FormStockStatusModel.Exception.ArticlesNotFoundException;
 import com.enterprise.stockmanagement.Store.Entities.Store;
-import com.enterprise.stockmanagement.Store.Services.CRUDStore;
-import com.enterprise.stockmanagement.Store.Services.Exception.StoreNameNotFoundException;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,7 +16,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Transient;
 
 @Entity
 public class Movement 
@@ -45,16 +39,6 @@ public class Movement
     private Double quantity ;
 
 
-    @Transient
-    @Autowired
-    private CRUDStore storeService ;
-
-    @Transient
-    @Autowired
-    private CRUDArticles articlesService ;
-
-
-
 // controll
 
     public void setDateMovement(String timestamp) throws TimestampUnvalidExcetion
@@ -63,20 +47,6 @@ public class Movement
         setDateMovement(timestamp2);
     }
 
-    public void setArticles(String articles) throws ArticlesNotFoundException
-    {
-        try 
-        {
-            setArticles(articlesService.getByName(articles));
-        } catch (Exception e) {
-            throw new ArticlesNotFoundException("Article " + articles + " not valid name");
-        }
-    }
-
-    public void setStore(String store) throws StoreNameNotFoundException 
-    {
-        setStore(storeService.getByName(store));
-    }
 
     public void setQuantity(String quantity) throws QuantityException ,NumberFormatException{
         Double value = Double.valueOf(quantity) ;

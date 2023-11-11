@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.enterprise.stockmanagement.Articles.Services.CRUDArticles;
 import com.enterprise.stockmanagement.Movement.DTO.FormMovementDTO;
 import com.enterprise.stockmanagement.Movement.Entities.Movement;
 import com.enterprise.stockmanagement.Movement.Service.in.MovementINService;
 import com.enterprise.stockmanagement.Movement.Service.out.MovementOUTService;
+import com.enterprise.stockmanagement.Store.Services.CRUDStore;
 
 @RestController
 
@@ -18,6 +20,9 @@ public class MovementController {
 
     @Autowired MovementOUTService movementOUTService ;
 
+    @Autowired CRUDArticles articlesService ;
+
+    @Autowired CRUDStore storeService;
 
 
     @PostMapping("/in")
@@ -25,9 +30,9 @@ public class MovementController {
         Movement movementModel = new Movement();
         try 
         {
-            movementModel.setArticles(formMovementDTO.getArticle());
+            movementModel.setArticles( articlesService.getByName(formMovementDTO.getArticle()) );
             movementModel.setDateMovement(formMovementDTO.getMovementDate());
-            movementModel.setStore(formMovementDTO.getStore());
+            movementModel.setStore(storeService.getByName(formMovementDTO.getStore()));
             movementModel.setMethodType(1);
             movementModel.setQuantity(formMovementDTO.getQuantity());
 
@@ -49,9 +54,9 @@ public class MovementController {
 
         try 
         {
-            movementModel.setArticles(formMovementDTO.getArticle());
+            movementModel.setArticles( articlesService.getByName(formMovementDTO.getArticle()) );
             movementModel.setDateMovement(formMovementDTO.getMovementDate());
-            movementModel.setStore(formMovementDTO.getStore());
+            movementModel.setStore(storeService.getByName(formMovementDTO.getStore()));
             movementModel.setMethodType(1);
             movementModel.setQuantity((formMovementDTO.getQuantity()));
 
