@@ -3,17 +3,16 @@ package com.enterprise.stockmanagement.Movement.Entities;
 import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.enterprise.stockmanagement.Articles.Entities.Articles;
-import com.enterprise.stockmanagement.Articles.Repositories.ArticlesRepository;
+import com.enterprise.stockmanagement.Articles.Services.CRUDArticles;
 import com.enterprise.stockmanagement.DateValidation.Service.Timestamp.TimestampUnvalidExcetion;
 import com.enterprise.stockmanagement.DateValidation.Service.Timestamp.TimestampValidation;
 import com.enterprise.stockmanagement.Quantity.QuantityException;
 import com.enterprise.stockmanagement.StockStatus.Models.FormStockStatusModel.Exception.ArticlesNotFoundException;
-import com.enterprise.stockmanagement.StockStatus.Models.FormStockStatusModel.Exception.StoreNotFoundException;
 import com.enterprise.stockmanagement.Store.Entities.Store;
-import com.enterprise.stockmanagement.Store.Repositories.StoreRepository;
+import com.enterprise.stockmanagement.Store.Services.CRUDStore;
+import com.enterprise.stockmanagement.Store.Services.Exception.StoreNameNotFoundException;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +23,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Transient;
 
-@Component
 @Entity
 public class Movement 
 {
@@ -47,14 +45,15 @@ public class Movement
     private Double quantity ;
 
 
-    // database access utils
-    @Autowired
     @Transient
-    private ArticlesRepository  articlesRepository ;
+    @Autowired
+    private CRUDStore storeService ;
 
-    @Autowired
     @Transient
-    private StoreRepository storeRepository ;
+    @Autowired
+    private CRUDArticles articlesService ;
+
+
 
 // controll
 
@@ -66,24 +65,17 @@ public class Movement
 
     public void setArticles(String articles) throws ArticlesNotFoundException
     {
-
-
-        try {
-            setArticles(articlesRepository.findByNameArticles(articles).get());
-            
+        try 
+        {
+            setArticles(articlesService.getByName(articles));
         } catch (Exception e) {
-            
             throw new ArticlesNotFoundException("Article " + articles + " not valid name");
         }
     }
 
-    public void setStore(String store) throws StoreNotFoundException 
+    public void setStore(String store) throws StoreNameNotFoundException 
     {
-
-        if(!storeRepository.existsStoreName(store)) throw new StoreNotFoundException("Store " + store + " not found");
-
-        setStore(storeRepository.findByStoreName(store).get());
-
+        setStore(storeService.getByName(store));
     }
 
     public void setQuantity(String quantity) throws QuantityException ,NumberFormatException{
