@@ -2,6 +2,7 @@ package com.enterprise.stockmanagement.Movement.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.enterprise.stockmanagement.Movement.DTO.FormMovementDTO;
@@ -21,7 +22,7 @@ public class MovementController {
 
 
     @PostMapping("/in")
-    public FormMovementDTO inStock(FormMovementDTO formMovementDTO){
+    public FormMovementDTO inStock(@RequestBody FormMovementDTO formMovementDTO){
 
         try 
         {
@@ -43,7 +44,7 @@ public class MovementController {
     }
 
     @PostMapping("/out")
-    public FormMovementDTO outStock(FormMovementDTO formMovementDTO){
+    public FormMovementDTO outStock(@RequestBody FormMovementDTO formMovementDTO){
 
         try 
         {
