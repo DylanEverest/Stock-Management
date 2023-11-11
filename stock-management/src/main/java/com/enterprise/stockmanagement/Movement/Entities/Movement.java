@@ -16,9 +16,11 @@ import com.enterprise.stockmanagement.Store.Repositories.StoreRepository;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Transient;
 
 @Component
@@ -34,8 +36,10 @@ public class Movement
 
     private Integer methodType ;
 
+    @ManyToOne(optional = false ,fetch = FetchType.EAGER)
     private Articles articles ;
 
+    @ManyToOne(optional = false ,fetch = FetchType.EAGER)
     private Store store ;
 
     @Column(nullable = false )
