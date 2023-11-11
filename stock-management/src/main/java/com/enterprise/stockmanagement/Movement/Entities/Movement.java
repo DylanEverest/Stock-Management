@@ -38,6 +38,7 @@ public class Movement
     @Column(nullable = false )
     private Double quantity ;
 
+    private Double unitPrice;
 
 // controll
 
@@ -99,6 +100,21 @@ public class Movement
 
     public Double getQuantity() {
         return quantity;
+    }
+
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+
+    public Double getUnitPrice() {
+        return unitPrice;
+    }
+
+
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
 
