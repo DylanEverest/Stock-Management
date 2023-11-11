@@ -18,12 +18,11 @@ public class MovementController {
 
     @Autowired MovementOUTService movementOUTService ;
 
-    @Autowired Movement movementModel ;
 
 
     @PostMapping("/in")
     public FormMovementDTO inStock(@RequestBody FormMovementDTO formMovementDTO){
-
+        Movement movementModel = new Movement();
         try 
         {
             movementModel.setArticles(formMovementDTO.getArticle());
@@ -46,6 +45,7 @@ public class MovementController {
 
     @PostMapping("/out")
     public FormMovementDTO outStock(@RequestBody FormMovementDTO formMovementDTO){
+        Movement movementModel = new Movement();
 
         try 
         {
