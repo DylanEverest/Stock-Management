@@ -51,6 +51,7 @@ public class MovementController {
             movementModel.setDateMovement(formMovementDTO.getMovementDate());
             movementModel.setStore(formMovementDTO.getStore());
             movementModel.setMethodType(1);
+            movementModel.setQuantity((formMovementDTO.getQuantity()));
 
             movementOUTService.out(movementModel) ;
             
