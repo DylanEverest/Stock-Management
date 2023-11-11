@@ -20,7 +20,7 @@ public class MovementController {
     @Autowired Movement movementModel ;
 
 
-    @PostMapping
+    @PostMapping("in")
     public FormMovementDTO inStock(FormMovementDTO formMovementDTO){
 
         try 
@@ -42,7 +42,7 @@ public class MovementController {
         return formMovementDTO;
     }
 
-    @PostMapping
+    @PostMapping("/out")
     public FormMovementDTO outStock(FormMovementDTO formMovementDTO){
 
         try 
