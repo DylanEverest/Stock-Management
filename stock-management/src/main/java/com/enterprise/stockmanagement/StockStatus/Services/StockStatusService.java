@@ -20,7 +20,7 @@ public class StockStatusService
 
         stockStatusModel.setFinalQuantity(stockStatusServiceOperation.getStockStatusQuantity(formStockStatusModel.getEndDate()));
 
-        stockStatusModel.setPriceValue(null);
+        stockStatusModel.setPriceValue(stockStatusServiceOperation.getStockStatusPriceValue(formStockStatusModel.getEndDate()));
 
         return stockStatusModel ;
     }
