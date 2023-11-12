@@ -21,6 +21,8 @@ public class StockStatusDTO {
 
     private Double initialQuantity ;
 
+    private Double priceValue ;
+
     private String errors ;
 
 
@@ -31,6 +33,7 @@ public class StockStatusDTO {
         setEndDate(stockStatusModel.getEndDate());
         setInitialQuantity(stockStatusModel.getInitialQuantity());
         setFinalQuantity(stockStatusModel.getFinalQuantity());
+        setPriceValue(stockStatusModel.getPriceValue());
 
     }
 
@@ -88,6 +91,14 @@ public class StockStatusDTO {
 
     public void setErrors(String errors) {
         this.errors = errors;
+    }
+
+    public Double getPriceValue() {
+        return priceValue;
+    }
+
+    public void setPriceValue(Double priceValue) {
+        this.priceValue = priceValue;
     }
 
 
