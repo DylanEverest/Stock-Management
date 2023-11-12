@@ -11,6 +11,7 @@ public class StockStatusModel extends FormStockStatusModel
 
     private Double initialQuantity ;
 
+    private Double priceValue ;
 
 
 
@@ -32,6 +33,14 @@ public class StockStatusModel extends FormStockStatusModel
     public void setInitialQuantity(Double initialQuantity) 
     {
         this.initialQuantity = initialQuantity;
+    }
+
+    public Double getPriceValue() {
+        return priceValue;
+    }
+
+    public void setPriceValue(Double priceValue) {
+        this.priceValue = priceValue;
     }
     
 }
