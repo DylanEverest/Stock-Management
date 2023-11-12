@@ -18,7 +18,7 @@ public interface MovementRepository extends JpaRepository< Movement,Integer>{
 
 
     @Query(value =  "SELECT * FROM MOVEMENT WHERE date_movement < :date and method_type != 3",nativeQuery=true)
-    List<Movement> findAllButReportingWithDateMovementInferiorTo(@Param("date") Timestamp date) ;
+    List<Movement> findAllButReportingWithDateMovementInferiorOrEqualTo(@Param("date") Timestamp date) ;
 
     @Query(value = "SELECT max(date_movement) FROM MOVEMENT WHERE date_movement < :date and method_type = 3 "
     , nativeQuery = true)
