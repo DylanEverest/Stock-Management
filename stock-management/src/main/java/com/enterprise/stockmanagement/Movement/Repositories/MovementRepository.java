@@ -25,4 +25,10 @@ public interface MovementRepository extends JpaRepository< Movement,Integer>{
     Optional<Timestamp> findLastReportDate(@Param("date") Timestamp date);
 
 
+    @Query( value =  "SELECT * FROM MOVEMENT WHERE :date1 < date_movement AND date_movement< :date2",
+            nativeQuery=true)
+    List<Movement> findAllWithDateMovementBetween(  @Param("date1") Timestamp date, 
+                                                    @Param("date2") Timestamp date2 ) ;
+
+
 }
