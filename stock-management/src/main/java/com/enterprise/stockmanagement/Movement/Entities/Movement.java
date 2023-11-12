@@ -40,6 +40,8 @@ public class Movement
 
     private Double unitPrice;
 
+    private Double actualPriceStock ;
+
 // controll
 
     public void setDateMovement(String timestamp) throws TimestampUnvalidExcetion
@@ -115,6 +117,21 @@ public class Movement
 
     public void setUnitPrice(String unitPrice) {
         this.unitPrice = Double.valueOf(unitPrice) ;
+    }
+
+
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+
+    public Double getActualPriceStock() {
+        return actualPriceStock;
+    }
+
+
+    public void setActualPriceStock(Double actualPriceStock) {
+        this.actualPriceStock = actualPriceStock;
     }
 
 
