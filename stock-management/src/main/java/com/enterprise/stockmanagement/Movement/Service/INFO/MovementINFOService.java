@@ -43,6 +43,10 @@ public class MovementINFOService {
         return movementRepository.findAllWithDateMovementBetween(date1,date2);
     }
 
+    public List<Movement> getAllWithDateMovementBetweenWithClosedInterval(Timestamp date1 ,Timestamp date2)
+    {
+        return movementRepository.findAllWithDateMovementBetweenWithClosedInterval(date1,date2);
+    }
 
     
 }
