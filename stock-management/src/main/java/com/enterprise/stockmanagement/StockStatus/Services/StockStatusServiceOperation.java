@@ -49,7 +49,7 @@ public class StockStatusServiceOperation {
         if (reportDate == null) 
         {
             // get all movement before the date for the sum operation
-            List<Movement> list  = movementINFOService.getAllButReportingWithDateMovementInferiorTo(date) ;
+            List<Movement> list  = movementINFOService.getAllButReportingWithDateMovementInferiorOrEqualTo(date) ;
             Movement[] movements = list.toArray(new Movement[list.size()]) ;
 
             // return the final sum
