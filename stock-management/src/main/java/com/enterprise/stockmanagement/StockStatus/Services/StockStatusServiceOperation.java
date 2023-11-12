@@ -41,4 +41,31 @@ public class StockStatusServiceOperation {
         }
     }
 
+    public Double getStockStatusPriceValue(Timestamp date)
+    {
+        // get last report before the date
+        Timestamp reportDate =  movementINFOService.getLastReportDate(date) ;
+
+        if (reportDate == null) 
+        {
+            // get all movement before the date for the sum operation
+            List<Movement> list  = movementINFOService.getAllButReportingWithDateMovementInferiorTo(date) ;
+            Movement[] movements = list.toArray(new Movement[list.size()]) ;
+
+            // return the final sum
+            return  movementOperationService.sumAllQuantityTimesPrice(movements) ;
+
+        }
+        else{
+            // get all movement before the date and last report date for the sum operation
+            // List<Movement> list  = movementINFOService.getAllWithDateMovementBetween( reportDate,date) ;
+            // Movement[] movements = list.toArray(new Movement[list.size()]) ;
+
+            // return movementOperationService.sumAllQuantityTimesPrice(movements) ;
+
+            // for the moment
+            return 0. ;
+        }
+    }
+
 }
