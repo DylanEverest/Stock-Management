@@ -59,6 +59,11 @@ public class Movement
         this.quantity = value;
     }
 
+    public void setQuantityForOut(String quantity) throws NumberFormatException {
+        Double value = Double.valueOf(quantity) ;
+        this.quantity = value ;   
+    }
+
 // standard
     public Integer getMovementId() {
         return movementId;
