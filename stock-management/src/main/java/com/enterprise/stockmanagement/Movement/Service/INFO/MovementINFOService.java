@@ -21,9 +21,9 @@ public class MovementINFOService {
         return movementRepository.findAllByMethodType(type) ;
     }
 
-    public List<Movement> getAllWithDateMovementInferiorTo(Timestamp date)
+    public List<Movement> getAllButReportingWithDateMovementInferiorTo(Timestamp date)
     {
-        return movementRepository.findAllWithDateMovementInferiorTo(date) ;
+        return movementRepository.findAllButReportingWithDateMovementInferiorTo(date) ;
     }
 
     public Timestamp getLastReportDate(Timestamp date)
