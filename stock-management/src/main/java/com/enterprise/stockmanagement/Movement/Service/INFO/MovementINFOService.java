@@ -23,7 +23,7 @@ public class MovementINFOService {
 
     public List<Movement> getAllButReportingWithDateMovementInferiorOrEqualTo(Timestamp date)
     {
-        return movementRepository.findAllButReportingWithDateMovementInferiorTo(date) ;
+        return movementRepository.findAllButReportingWithDateMovementInferiorOrEqualTo(date) ;
     }
 
     public Timestamp getLastReportDate(Timestamp date)
