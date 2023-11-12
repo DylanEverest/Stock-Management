@@ -1,4 +1,4 @@
-package com.enterprise.stockmanagement.Movement.Service;
+package com.enterprise.stockmanagement.Movement.Service.INFO;
 
 import java.sql.Timestamp;
 import java.util.List;
