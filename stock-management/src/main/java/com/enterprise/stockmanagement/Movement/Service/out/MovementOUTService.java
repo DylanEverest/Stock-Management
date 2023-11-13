@@ -29,7 +29,7 @@ public class MovementOUTService {
         // some logics
         outs(getPossibleOUT(movement));
 
-        return movementRepository.save(movement) ;
+        return movement ;
     }
 
     public void outs(Movement [] movement)
@@ -55,8 +55,10 @@ public class MovementOUTService {
         entryList =movementRepository.findAllByMethodType(1) ;
         outList = movementRepository.findAllByMethodType(2) ;
 
-        Remnant[] remnants = new Remnant().getRemnants(entryList.toArray(new Movement[entryList.size()]),
-                                                        new Movement[outList.size()]
+        // eto tokony mbola misy hoe fifo sa lifo
+
+        Remnant[] remnants = new Remnant().getRemnants( entryList.toArray(new Movement[entryList.size()]),
+                                                        outList.toArray(new Movement[outList.size()]) 
                                                       ) ;
         for (int i = 0; i < remnants.length; i++) {
             Movement movement = new Movement();
@@ -67,7 +69,7 @@ public class MovementOUTService {
             if (remnants[i].getQuantity()>=quantityTarget) 
             {
                 movement.setUnitPrice(remnants[i].getUnitPrice());
-                movement.setQuantity(remnants[i].getQuantity());
+                movement.setQuantity(quantityTarget * -1);
                 possibleOut.add(movement);                
 
                 return possibleOut.toArray(new Movement[possibleOut.size()]);

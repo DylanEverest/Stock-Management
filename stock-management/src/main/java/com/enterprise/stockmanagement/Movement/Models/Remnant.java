@@ -29,11 +29,14 @@ public class Remnant
 
 
         for (int i = 0; i < out.length; i++) {
-            if (out[i].getUnitPrice() == list.get(entryIndex).getUnitPrice()) 
+
+            
+            if (out[i].getUnitPrice().doubleValue() == list.get(entryIndex).getUnitPrice().doubleValue()) 
             {
-                list.get(entryIndex).setQuantity(list.get(entryIndex).getQuantity()-out[i].getQuantity());
+                list.get(entryIndex).setQuantity(list.get(entryIndex).getQuantity()+out[i].getQuantity());
             }
-            else {
+            else 
+            {
                 // index manipulation
                 entryIndex++;
                 i-- ;
