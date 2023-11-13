@@ -1,9 +1,9 @@
-create view movementView as
+create view movementview as
 
-select  first.date_movement ,first.method_type ,first.quantity, 
+select  first.movement_id ,first.date_movement ,first.method_type ,first.quantity, 
         first.unit_price ,first.actual_price_stock ,first.family ,store_name 
         from 
-        (select date_movement ,method_type,quantity,store_id ,unit_price ,actual_price_stock  
+        (select movement_id, date_movement ,method_type,quantity,store_id ,unit_price ,actual_price_stock  
             , family 
             from movement 
             join articles 
