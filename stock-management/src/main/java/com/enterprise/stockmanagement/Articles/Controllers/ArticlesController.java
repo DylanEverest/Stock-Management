@@ -46,7 +46,12 @@ public class ArticlesController
     @PostMapping(path = "/articles")
     public ArticlesDTO saveArticles(@RequestBody ArticlesDTO articlesDTO)
     {
-        crudArticles.postArticles(articlesDTO.getArticles());
+        try {
+            crudArticles.postArticles(articlesDTO.getArticles());
+            
+        } catch (Exception e) {
+            articlesDTO.setErrors(e.getMessage());
+        }
 
         return articlesDTO;
 

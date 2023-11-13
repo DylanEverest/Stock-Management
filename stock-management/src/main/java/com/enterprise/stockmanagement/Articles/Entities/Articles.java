@@ -24,7 +24,7 @@ public class Articles
     @Column(length=250,nullable =  false) 
     private String family ;   
 
-    @Column(length = 250 ,nullable = false)
+    @Column(length = 250 ,nullable = false, unique = true)
     private String nameArticles ;
 
     @ManyToOne(optional = false ,fetch = FetchType.EAGER)
