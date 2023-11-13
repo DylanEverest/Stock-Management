@@ -22,11 +22,12 @@ public class MovementOUTService {
         return movementRepository.findAllByMethodType(2);
     }
 
-    public Movement out(Movement movement)
+    public Movement out(Movement movement) throws OutQuantityNotSupportedException
     {
         movement.setMethodType(2);
 
         // some logics
+        outs(getPossibleOUT(movement));
 
         return movementRepository.save(movement) ;
     }
@@ -45,7 +46,7 @@ public class MovementOUTService {
     }
 
 
-    
+
     public Movement [] getPossibleOUT(Movement movementExcepted) throws OutQuantityNotSupportedException 
     {
         List<Movement> possibleOut = new ArrayList<Movement>() ;
