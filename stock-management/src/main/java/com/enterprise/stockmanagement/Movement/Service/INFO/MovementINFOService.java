@@ -7,30 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enterprise.stockmanagement.Movement.Entities.Movement;
-import com.enterprise.stockmanagement.Movement.Repositories.MovementRepository;
+import com.enterprise.stockmanagement.Movement.Repositories.view.MovementViewRepository;
 
 @Service
 public class MovementINFOService {
 
     @Autowired
-    MovementRepository movementRepository ;
+    MovementViewRepository movementViewRepository ;
 
 
     public List<Movement> getAllByMethod(Integer type)
     {
-        return movementRepository.findAllByMethodType(type) ;
+        return movementViewRepository.findAllByMethodType(type) ;
     }
 
     public List<Movement> getAllButReportingWithDateMovementInferiorOrEqualTo(Timestamp date)
     {
-        return movementRepository.findAllButReportingWithDateMovementInferiorOrEqualTo(date) ;
+        return movementViewRepository.findAllButReportingWithDateMovementInferiorOrEqualTo(date) ;
     }
 
     public Timestamp getLastReportDate(Timestamp date)
     {
         try 
         {
-            return movementRepository.findLastReportDate(date).get() ;
+            return movementViewRepository.findLastReportDate(date).get() ;
         } 
         catch (Exception e) 
         {
@@ -40,12 +40,12 @@ public class MovementINFOService {
 
     public List<Movement> getAllWithDateMovementBetween(Timestamp date1 ,Timestamp date2)
     {
-        return movementRepository.findAllWithDateMovementBetween(date1,date2);
+        return movementViewRepository.findAllWithDateMovementBetween(date1,date2);
     }
 
     public List<Movement> getAllWithDateMovementBetweenWithClosedInterval(Timestamp date1 ,Timestamp date2)
     {
-        return movementRepository.findAllWithDateMovementBetweenWithClosedInterval(date1,date2);
+        return movementViewRepository.findAllWithDateMovementBetweenWithClosedInterval(date1,date2);
     }
 
     
