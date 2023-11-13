@@ -17,15 +17,15 @@ public class StockStatusServiceOperation {
 
     @Autowired MovementOperationService movementOperationService ;
 
-    public Double getStockStatusQuantity(Timestamp date)
+    public Double getStockStatusQuantity(Timestamp date ,String family , String store)
     {
         // get last report before the date
-        Timestamp reportDate =  movementINFOService.getLastReportDate(date) ;
+        Timestamp reportDate =  movementINFOService.getLastReportDate(date ,family ,store) ;
 
         if (reportDate == null) 
         {
             // get all movement before the date for the sum operation
-            List<MovementView> list  = movementINFOService.getAllButReportingWithDateMovementInferiorOrEqualTo(date) ;
+            List<MovementView> list  = movementINFOService.getAllButReportingWithDateMovementInferiorOrEqualTo(date ,family ,store) ;
             MovementView[] movements = list.toArray(new MovementView[list.size()]) ;
 
             // return the final sum
@@ -34,22 +34,22 @@ public class StockStatusServiceOperation {
         }
         else{
             // get all movement before the date and last report date for the sum operation
-            List<MovementView> list  = movementINFOService.getAllWithDateMovementBetween( reportDate,date) ;
+            List<MovementView> list  = movementINFOService.getAllWithDateMovementBetween( reportDate,date,family ,store) ;
             MovementView[] movements = list.toArray(new MovementView[list.size()]) ;
 
             return movementOperationService.sumAllQuantityTimesPrice(movements) ;
         }
     }
 
-    public Double getStockStatusPriceValue(Timestamp date)
+    public Double getStockStatusPriceValue(Timestamp date ,String family , String store)
     {
         // get last report before the date
-        Timestamp reportDate =  movementINFOService.getLastReportDate(date) ;
+        Timestamp reportDate =  movementINFOService.getLastReportDate(date ,family ,store) ;
 
         if (reportDate == null) 
         {
             // get all movement before the date for the sum operation
-            List<MovementView> list  = movementINFOService.getAllButReportingWithDateMovementInferiorOrEqualTo(date) ;
+            List<MovementView> list  = movementINFOService.getAllButReportingWithDateMovementInferiorOrEqualTo(date ,family ,store) ;
             MovementView[] movements = list.toArray(new MovementView[list.size()]) ;
 
             // return the final sum
