@@ -21,16 +21,16 @@ public class MovementINFOService {
         return movementViewRepository.findAllByMethodType(type) ;
     }
 
-    public List<MovementView> getAllButReportingWithDateMovementInferiorOrEqualTo(Timestamp date)
+    public List<MovementView> getAllButReportingWithDateMovementInferiorOrEqualTo(Timestamp date ,String family , String store )
     {
-        return movementViewRepository.findAllButReportingWithDateMovementInferiorOrEqualTo(date) ;
+        return movementViewRepository.findAllButReportingWithDateMovementInferiorOrEqualTo(date ,family, store) ;
     }
 
-    public Timestamp getLastReportDate(Timestamp date)
+    public Timestamp getLastReportDate(Timestamp date ,String family , String store)
     {
         try 
         {
-            return movementViewRepository.findLastReportDate(date).get() ;
+            return movementViewRepository.findLastReportDate(date ,family, store).get() ;
         } 
         catch (Exception e) 
         {
@@ -38,14 +38,14 @@ public class MovementINFOService {
         }
     }
 
-    public List<MovementView> getAllWithDateMovementBetween(Timestamp date1 ,Timestamp date2)
+    public List<MovementView> getAllWithDateMovementBetween(Timestamp date1 ,Timestamp date2 ,String family , String store)
     {
-        return movementViewRepository.findAllWithDateMovementBetween(date1,date2);
+        return movementViewRepository.findAllWithDateMovementBetween(date1,date2 ,family, store);
     }
 
-    public List<MovementView> getAllWithDateMovementBetweenWithClosedInterval(Timestamp date1 ,Timestamp date2)
+    public List<MovementView> getAllWithDateMovementBetweenWithClosedInterval(Timestamp date1 ,Timestamp date2 ,String family , String store)
     {
-        return movementViewRepository.findAllWithDateMovementBetweenWithClosedInterval(date1,date2);
+        return movementViewRepository.findAllWithDateMovementBetweenWithClosedInterval(date1,date2 ,family, store);
     }
 
     
