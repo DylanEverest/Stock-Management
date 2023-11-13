@@ -1,5 +1,6 @@
 package com.enterprise.stockmanagement.Movement.Service.out;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,18 @@ public class MovementOUTService {
         // some logics
 
         return movementRepository.save(movement) ;
+    }
+
+    public void outs(Movement [] movement)
+    {
+        List<Movement> list = new ArrayList<Movement>();
+        for (int i = 0; i < movement.length; i++) {
+
+            movement[i].setMethodType(2);
+            list.add(movement[i]);
+        }
+
+        movementRepository.saveAll(list) ;
+
     }
 }
