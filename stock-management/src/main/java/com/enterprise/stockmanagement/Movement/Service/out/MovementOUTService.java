@@ -76,7 +76,12 @@ public class MovementOUTService {
             }
             else
             {
+                movement.setUnitPrice(remnants[i].getUnitPrice());
+                movement.setQuantity(remnants[i].getQuantity() * -1);
                 quantityTarget = quantityTarget -remnants[i].getQuantity() ;
+
+                possibleOut.add(movement);                
+
             }
         }
         throw new OutQuantityNotSupportedException("The stock quantity is missing "+quantityTarget);
