@@ -27,21 +27,27 @@ public class Remnant
             list.add(tmp);
         }
 
-
-        for (int i = 0; i < out.length; i++) {
+        try {
+            for (int i = 0; i < out.length; i++) {
 
             
-            if (out[i].getUnitPrice().doubleValue() == list.get(entryIndex).getUnitPrice().doubleValue()) 
-            {
-                list.get(entryIndex).setQuantity(list.get(entryIndex).getQuantity()+out[i].getQuantity());
+                if (out[i].getUnitPrice().doubleValue() <= list.get(entryIndex).getUnitPrice().doubleValue()) 
+                {
+                    list.get(entryIndex).setQuantity(list.get(entryIndex).getQuantity()+out[i].getQuantity());
+                }
+                else 
+                {
+                    // index manipulation
+                    entryIndex++;
+                    i-- ;
+                }
             }
-            else 
-            {
-                // index manipulation
-                entryIndex++;
-                i-- ;
-            }
+                
+        } catch (Exception e) {
+            System.out.println("TAY");
+            throw e ;
         }
+
 
         return list.toArray(new Remnant[list.size()]);
     }

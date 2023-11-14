@@ -52,10 +52,23 @@ public class MovementOUTService {
         List<Movement> possibleOut = new ArrayList<Movement>() ;
         Double quantityTarget = movementExcepted.getQuantity();
         List <Movement> entryList , outList ;
-        entryList =movementRepository.findAllByMethodType(1) ;
-        outList = movementRepository.findAllByMethodType(2) ;
 
         // eto tokony mbola misy hoe fifo sa lifo
+
+
+        System.out.println(movementExcepted.getArticles().getMethodType().getMethodType());
+        
+
+        if (movementExcepted.getArticles().getMethodType().getMethodType().equalsIgnoreCase("FIFO")) {
+            
+            entryList =movementRepository.findAllByMethodTypeOrderASC(1) ;
+        }
+        else{
+            entryList =movementRepository.findAllByMethodTypeOrderDESC(1) ;
+        }
+
+        outList = movementRepository.findAllByMethodType(2) ;
+
 
         Remnant[] remnants = new Remnant().getRemnants( entryList.toArray(new Movement[entryList.size()]),
                                                         outList.toArray(new Movement[outList.size()]) 
@@ -87,4 +100,13 @@ public class MovementOUTService {
         throw new OutQuantityNotSupportedException("The stock quantity is missing "+quantityTarget);
 
     }
+
+    public MovementRepository getMovementRepository() {
+        return movementRepository;
+    }
+
+    public void setMovementRepository(MovementRepository movementRepository) {
+        this.movementRepository = movementRepository;
+    }
+
 }
