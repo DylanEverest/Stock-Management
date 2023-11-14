@@ -46,7 +46,12 @@ public class StoreController
     @PostMapping(path = "/stores")
     public StoreDTO saveStore(@RequestBody StoreDTO storesDTO)
     {
-        crudStore.postStore(storesDTO.getStore());
+        try {
+            crudStore.postStore(storesDTO.getStore());
+            
+        } catch (Exception e) {
+            storesDTO.setErrors(e.getMessage());
+        }
 
         return storesDTO;
 

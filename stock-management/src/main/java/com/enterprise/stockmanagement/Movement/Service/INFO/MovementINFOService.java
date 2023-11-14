@@ -6,31 +6,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enterprise.stockmanagement.Movement.Entities.Movement;
-import com.enterprise.stockmanagement.Movement.Repositories.MovementRepository;
+import com.enterprise.stockmanagement.Movement.Entities.view.MovementView;
+import com.enterprise.stockmanagement.Movement.Repositories.view.MovementViewRepository;
 
 @Service
 public class MovementINFOService {
 
     @Autowired
-    MovementRepository movementRepository ;
+    MovementViewRepository movementViewRepository ;
 
 
-    public List<Movement> getAllByMethod(Integer type)
+    public List<MovementView> getAllByMethod(Integer type)
     {
-        return movementRepository.findAllByMethodType(type) ;
+        return movementViewRepository.findAllByMethodType(type) ;
     }
 
-    public List<Movement> getAllButReportingWithDateMovementInferiorOrEqualTo(Timestamp date)
+    public List<MovementView> getAllButReportingWithDateMovementInferiorOrEqualTo(Timestamp date ,String family , String store )
     {
-        return movementRepository.findAllButReportingWithDateMovementInferiorOrEqualTo(date) ;
+        return movementViewRepository.findAllButReportingWithDateMovementInferiorOrEqualTo(date ,family, store) ;
     }
 
-    public Timestamp getLastReportDate(Timestamp date)
+    public Timestamp getLastReportDate(Timestamp date ,String family , String store)
     {
         try 
         {
-            return movementRepository.findLastReportDate(date).get() ;
+            return movementViewRepository.findLastReportDate(date ,family, store).get() ;
         } 
         catch (Exception e) 
         {
@@ -38,14 +38,14 @@ public class MovementINFOService {
         }
     }
 
-    public List<Movement> getAllWithDateMovementBetween(Timestamp date1 ,Timestamp date2)
+    public List<MovementView> getAllWithDateMovementBetween(Timestamp date1 ,Timestamp date2 ,String family , String store)
     {
-        return movementRepository.findAllWithDateMovementBetween(date1,date2);
+        return movementViewRepository.findAllWithDateMovementBetween(date1,date2 ,family, store);
     }
 
-    public List<Movement> getAllWithDateMovementBetweenWithClosedInterval(Timestamp date1 ,Timestamp date2)
+    public List<MovementView> getAllWithDateMovementBetweenWithClosedInterval(Timestamp date1 ,Timestamp date2 ,String family , String store)
     {
-        return movementRepository.findAllWithDateMovementBetweenWithClosedInterval(date1,date2);
+        return movementViewRepository.findAllWithDateMovementBetweenWithClosedInterval(date1,date2 ,family, store);
     }
 
     

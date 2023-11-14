@@ -2,13 +2,13 @@ package com.enterprise.stockmanagement.Movement.Service.operation;
 
 import org.springframework.stereotype.Service;
 
-import com.enterprise.stockmanagement.Movement.Entities.Movement;
+import com.enterprise.stockmanagement.Movement.Entities.view.MovementView;
 
 @Service
 public class MovementOperationService 
 {
 
-    public Double sumAllQuantity( Movement[] movement) 
+    public Double sumAllQuantity( MovementView[] movement) 
     {
         Double sum = 0.; 
 
@@ -19,7 +19,7 @@ public class MovementOperationService
         return sum;
     }
 
-    public Double sumAllQuantityTimesPrice(Movement [] movements) 
+    public Double sumAllQuantityTimesPrice(MovementView [] movements) 
     {
 
         Double sum = 0.; 

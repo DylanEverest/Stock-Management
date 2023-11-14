@@ -16,6 +16,11 @@ public interface MovementRepository extends JpaRepository< Movement,Integer>{
     
     List<Movement> findAllByMethodType (@Param("methodType") Integer methodType) ;
 
+    @Query(value="SELECT * from movement where method_type = :methodType order by date_movement asc", nativeQuery = true)
+    List<Movement> findAllByMethodTypeOrderASC (@Param("methodType") Integer methodType) ;
+
+    @Query(value="SELECT * from movement where method_type = :methodType order by date_movement desc", nativeQuery = true)
+    List<Movement> findAllByMethodTypeOrderDESC (@Param("methodType") Integer methodType) ;
 
     @Query(value =  "SELECT * FROM MOVEMENT WHERE date_movement <= :date and method_type != 3",nativeQuery=true)
     List<Movement> findAllButReportingWithDateMovementInferiorOrEqualTo(@Param("date") Timestamp date) ;

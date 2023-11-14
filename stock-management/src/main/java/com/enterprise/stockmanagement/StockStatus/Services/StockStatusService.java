@@ -16,11 +16,11 @@ public class StockStatusService
         
         StockStatusModel stockStatusModel = new StockStatusModel() ;
 
-        stockStatusModel.setInitialQuantity(stockStatusServiceOperation.getStockStatusQuantity(formStockStatusModel.getBeginDate()));
+        stockStatusModel.setInitialQuantity(stockStatusServiceOperation.getStockStatusQuantity(formStockStatusModel.getBeginDate() ,formStockStatusModel.getArticle() , formStockStatusModel.getStore()));
 
-        stockStatusModel.setFinalQuantity(stockStatusServiceOperation.getStockStatusQuantity(formStockStatusModel.getEndDate()));
+        stockStatusModel.setFinalQuantity(stockStatusServiceOperation.getStockStatusQuantity(formStockStatusModel.getEndDate() ,formStockStatusModel.getArticle() , formStockStatusModel.getStore()));
 
-        stockStatusModel.setPriceValue(stockStatusServiceOperation.getStockStatusPriceValue(formStockStatusModel.getEndDate()));
+        stockStatusModel.setPriceValue(stockStatusServiceOperation.getStockStatusPriceValue(formStockStatusModel.getEndDate() ,formStockStatusModel.getArticle() , formStockStatusModel.getStore()));
 
         return stockStatusModel ;
     }
