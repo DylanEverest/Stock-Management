@@ -1,23 +1,31 @@
-import Axios from "../../APISERVICE/AXIOS/AxiosAPI"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "../../APISERVICE/AXIOS/AxiosAPI";
 
-export default function Articles() 
-{
-    const axios = Axios();
-    
-    const createData = async () => {
-        const requestData = { /* Vos données à envoyer */ };
-        try {
-          const response = await axios.get('/articles', requestData);
-          console.log(response.data);
-        } catch (error) {
-          console.error('Erreur lors de l\'envoi des données:', error);
-        }
-      };
+export default function Articles() {
+  const axiosInstance = Axios();
+  const [articles, setArticles] = useState([]);
 
-    console.log(createData());
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get('/articles');
+        console.log(response.data);
 
-    const articles = ["article1", "article2", "article3", "article"] ;
- 
-    return articles ;
+        // Check if listArticles is present in the API response
+        const listArticles = response.data.listArticles || [];
+
+        // Extract the nameArticles values from listArticles
+        const articleNames = listArticles.map(article => article.nameArticles);
+
+        // Update the state with the extracted article names
+        setArticles(articleNames);
+      } catch (error) {
+        console.error('Erreur lors de la récupération des données:', error);
+      }
+    };
+
+    fetchData(); // Call the fetchData function when the component mounts
+  }, []); // The empty dependency array ensures that this effect runs only once on mount
+
+  return articles;
 }
