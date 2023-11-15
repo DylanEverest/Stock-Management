@@ -8,14 +8,14 @@ export default function Magasins() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get('/magasins');
+        const response = await axiosInstance.get('/stores');
         console.log(response.data);
 
         // Check if listMagasins is present in the API response
-        const listMagasins = response.data.listMagasins || [];
+        const listStore = response.data.listStore || [];
 
         // Extract the magasin names from listMagasins
-        const magasinNames = listMagasins.map(magasin => magasin.nameMagasin);
+        const magasinNames = listStore.map(store => store.storeName);
 
         // Update the state with the extracted magasin names
         setMagasins(magasinNames);
