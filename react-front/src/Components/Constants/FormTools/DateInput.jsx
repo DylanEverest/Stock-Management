@@ -9,7 +9,7 @@ export default function DateInput(props) {
                             <i class="la la-calendar"></i>
                         </span>
 
-                        <input type="text" class="form-control" id="daterange" placeholder="Select value"/>
+                        <input type="text" class="form-control" id="daterange" placeholder="yyyy-mm-dThh:mm"/>
 
                     </div>
                 </div>

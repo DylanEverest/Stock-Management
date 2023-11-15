@@ -1,6 +1,7 @@
 import Articles from "../../../../Services/DataForms/Articles/Articles";
 import Magasins from "../../../../Services/DataForms/Magasins/Magasins";
 import SubmitButton from "../../../Constants/Buttons/SubmitButtons";
+import DateInput from "../../../Constants/FormTools/DateInput";
 import SelectForm from "../../../Constants/FormTools/Select";
 
 export default function FormOutStock(props) 
@@ -19,10 +20,12 @@ export default function FormOutStock(props)
                         <div class="col-lg-9">
                             <input type="text" class="form-control"/>
                             <small>
-                                En Kg.
+                                unit to
                             </small>
                         </div>
                     </div>
+
+                    <DateInput label={"Date de sortie"} />
 
                     <SelectForm label={"Articles"} option={Articles()}/>
                     
