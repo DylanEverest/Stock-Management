@@ -25,6 +25,7 @@ export default function Articles() {
     };
 
     fetchData(); // Call the fetchData function when the component mounts
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // The empty dependency array ensures that this effect runs only once on mount
 
   return articles;

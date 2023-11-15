@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Axios from "../../APISERVICE/AXIOS/AxiosAPI";
 
 export default function Magasins() {
@@ -25,6 +25,7 @@ export default function Magasins() {
     };
 
     fetchData(); // Call the fetchData function when the component mounts
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // The empty dependency array ensures that this effect runs only once on mount
 
   return magasins;
