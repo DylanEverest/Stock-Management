@@ -1,7 +1,6 @@
 import ContentHeader from "../../Constants/ContentHeader/ContentHeader";
 import Sidebar from "../../Constants/Siderbar/Sidebar";
 import FormOutStock from "./Form/FormOutStock";
-
 export default function ContentOutStock() 
 {
 

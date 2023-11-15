@@ -3,6 +3,7 @@ package com.enterprise.stockmanagement.Store.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.enterprise.stockmanagement.Store.Entities.Store;
 import com.enterprise.stockmanagement.Store.Services.CRUDStore;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000") // Autoriser les requêtes depuis ce domaine
 public class StoreController 
 {
 

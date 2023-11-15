@@ -1,6 +1,7 @@
 package com.enterprise.stockmanagement.Movement.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,7 @@ import com.enterprise.stockmanagement.Movement.Service.out.MovementOUTService;
 import com.enterprise.stockmanagement.Store.Services.CRUDStore;
 
 @RestController
-
+@CrossOrigin(origins = "http://localhost:3000") // Autoriser les requêtes depuis ce domaine
 public class MovementController {
     
     @Autowired MovementINService movementINService;
