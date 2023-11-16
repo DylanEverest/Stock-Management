@@ -15,6 +15,9 @@ export default function FormOutStock() {
     store: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -31,13 +34,21 @@ export default function FormOutStock() {
       store: formData.store,
     };
 
-    console.log(jsonData);
 
+    console.log(jsonData);
     try 
     {
       // Appel à l'API localhost:8080/stockStatus en méthode POST
       const axios = Axios();
-      axios.post("/out",jsonData)
+      const response = await axios.post("/out",jsonData)
+
+      console.log(response.data)
+      if (response.data.errors !== null) {
+        setErrorMessage(response.data.errors);
+      } else {
+        // Réinitialise le message d'erreur s'il n'y a pas d'erreurs
+        setErrorMessage('');
+      }
 
     } catch (error) {
       console.error('Erreur inattendue : ', error);
@@ -50,6 +61,12 @@ export default function FormOutStock() {
         <h4>Remplir</h4>
       </div>
       <div className="widget-body">
+        {errorMessage && (
+            <div className="alert alert-danger" role="alert">
+              {errorMessage}
+            </div>
+          )}
+
         <form className="form-horizontal" onSubmit={handleSubmit}>
           <div className="form-group row d-flex align-items-center mb-5">
             <label className="col-lg-3 form-control-label">Quantite</label>
@@ -64,9 +81,10 @@ export default function FormOutStock() {
             </div>
           </div>
 
-          <DateInput label={'Date de sortie'} name="date" onChange={handleChange} />
+          <DateInput label={'date'} name="date" onChange={handleChange} />
 
           <SelectForm label={'Articles'} option={Articles()} name="article" onChange={handleChange} />
+
 
           <SelectForm label={'Magasins'} option={Magasins()} name="store" onChange={handleChange} />
 
