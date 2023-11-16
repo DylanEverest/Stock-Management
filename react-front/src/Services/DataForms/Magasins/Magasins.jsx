@@ -9,7 +9,7 @@ export default function Magasins() {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get('/stores');
-        console.log(response.data);
+        // console.log(response.data);
 
         // Check if listMagasins is present in the API response
         const listStore = response.data.listStore || [];
