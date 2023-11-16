@@ -11,6 +11,17 @@ export default function Table(props) {
                     <table className="table table-bordered mb-0">
                         <thead>
                             <tr>
+                                {props.form.map((header, index) => (
+                                    <th key={index}>
+                                        <input type="text"className="form-control" placeholder={header}/>
+                                    </th>
+                                ))}
+                                <th></th>
+                                <th></th>
+                                <th><button class="btn btn-gradient-01" type="submit">Submit</button></th>
+
+                            </tr>
+                            <tr>
                                 {props.columnHeaders.map((header, index) => (
                                     <th key={index}>{header}</th>
                                 ))}

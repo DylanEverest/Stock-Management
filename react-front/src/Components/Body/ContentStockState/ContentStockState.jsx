@@ -26,7 +26,10 @@ export default function ContentStockState(props)
 
                         <div class="col-xl-12">
 
-                            <Table columnHeaders={["Date début", "Date fin", "Article", "Magasin", "Quantité initiale", "Reste"]} tableData={tableData}/>                                
+                            <Table  columnHeaders={["Date début", "Date fin", "Article", "Magasin", "Quantité initiale", "Quantité finale","Reste"]} 
+                                    tableData={tableData}
+                                    form ={["Date début", "Date fin", "Article", "Magasin"]} 
+                                    />                                
                         </div>
 
                     </div>
