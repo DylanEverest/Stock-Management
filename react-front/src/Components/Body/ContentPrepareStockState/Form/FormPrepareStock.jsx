@@ -44,7 +44,7 @@ export default function FormPrepareStock(props) {
         const responseData = await response.json();
 
         // Redirection vers la page "/stockstate" avec les données de réponse
-        props.history.push('/stockstate', { responseData });
+        // props.history.push('/stockstate', { responseData });
       } else {
         console.error('Erreur lors de la requête API');
       }
@@ -54,27 +54,29 @@ export default function FormPrepareStock(props) {
   };
 
   return (
-    <div class="widget has-shadow">
-      <div class="widget-header bordered no-actions d-flex align-items-center">
-        <h4>Remplir</h4>
-      </div>
-      <div class="widget-body">
-        <form class="form-horizontal" onSubmit={handleSubmit}>
+        <div class="widget has-shadow">
+        <div class="widget-header bordered no-actions d-flex align-items-center">
+            <h4>Remplir</h4>
+        </div>
+        <div class="widget-body">
+            <form class="form-horizontal">
+                
+                <DateInput label={"Date debut"}/>
 
-          <DateInput label={"Date début"} name="beginDate" onChange={handleChange} />
+                <DateInput label={"Date fin"} />
 
-          <DateInput label={"Date fin"} name="endDate" onChange={handleChange} />
+                <SimpleInput label={"Articles"} />
 
-          <SimpleInput label={"Articles"} name="article" onChange={handleChange} />
+                <SelectForm label={"Magasins"} option={Magasins()}/>           
+                
+                <div className="text-right">
+                    <SubmitButton/>
+                </div>
 
-          <SelectForm label={"Magasins"} option={Magasins()} name="store" onChange={handleChange} />
+            </form>
 
-          <div className="text-right">
-            <SubmitButton />
-          </div>
-
-        </form>
-      </div>
+        </div>
     </div>
-  );
+
+    );
 }

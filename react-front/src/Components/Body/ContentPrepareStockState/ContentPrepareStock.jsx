@@ -2,7 +2,7 @@ import ContentHeader from "../../Constants/ContentHeader/ContentHeader";
 import Sidebar from "../../Constants/Siderbar/Sidebar";
 import FormPrepareStock from "./Form/FormPrepareStock";
 
-export default function ContentPrepareStock(history) 
+export default function ContentPrepareStock() 
 {
 
     return(
@@ -16,7 +16,7 @@ export default function ContentPrepareStock(history)
   
                     <div class="row flex-row">
                         <div class="col-12">
-                            <FormPrepareStock history={history}/>
+                            <FormPrepareStock/>
                         </div>
                     </div>
   
