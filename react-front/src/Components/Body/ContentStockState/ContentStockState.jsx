@@ -1,6 +1,5 @@
 /* eslint-disable react/style-prop-object */
 
-import DataStockState from "../../../Services/DataTables/StockStateServices";
 import ContentHeader from "../../Constants/ContentHeader/ContentHeader";
 import Sidebar from "../../Constants/Siderbar/Sidebar";
 import Table from "../../Constants/Table/Table";

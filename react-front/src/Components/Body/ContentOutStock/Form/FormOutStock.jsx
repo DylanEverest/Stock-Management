@@ -1,5 +1,6 @@
 // Importe les modules nécessaires
 import React, { useState } from 'react';
+import Axios from '../../../../Services/APISERVICE/AXIOS/AxiosAPI';
 import Articles from '../../../../Services/DataForms/Articles/Articles';
 import Magasins from '../../../../Services/DataForms/Magasins/Magasins';
 import SubmitButton from '../../../Constants/Buttons/SubmitButtons';
@@ -25,32 +26,22 @@ export default function FormOutStock() {
     // Construction du JSON à partir des données du formulaire
     const jsonData = {
       quantity: formData.quantity,
-      date: formData.date + 'T00:00:00',
+      movementDate: formData.date ,
       article: formData.article,
       store: formData.store,
     };
 
     console.log(jsonData);
 
-    // try {
-    //   // Appel à l'API localhost:8080/stockStatus en méthode POST
-    //   const response = await fetch('http://localhost:8080/stockStatus', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(jsonData),
-    //   });
+    try 
+    {
+      // Appel à l'API localhost:8080/stockStatus en méthode POST
+      const axios = Axios();
+      axios.post("/out",jsonData)
 
-    //   if (response.ok) {
-    //     // Redirection vers la page "/stockstate"
-    //     history.push('/stockstate');
-    //   } else {
-    //     console.error('Erreur lors de la requête API');
-    //   }
-    // } catch (error) {
-    //   console.error('Erreur inattendue : ', error);
-    // }
+    } catch (error) {
+      console.error('Erreur inattendue : ', error);
+    }
   };
 
   return (
