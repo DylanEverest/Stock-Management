@@ -53,12 +53,8 @@ public class MovementOUTService {
         Double quantityTarget = movementExcepted.getQuantity();
         List <Movement> entryList , outList ;
 
-        // eto tokony mbola misy hoe fifo sa lifo
 
-
-        System.out.println(movementExcepted.getArticles().getMethodType().getMethodType());
-        
-
+        //  FIFO or LIFO
         if (movementExcepted.getArticles().getMethodType().getMethodType().equalsIgnoreCase("FIFO")) {
             
             entryList =movementRepository.findAllByMethodTypeOrderASC(1) ;
@@ -69,6 +65,7 @@ public class MovementOUTService {
 
         outList = movementRepository.findAllByMethodType(2) ;
 
+        
 
         Remnant[] remnants = new Remnant().getRemnants( entryList.toArray(new Movement[entryList.size()]),
                                                         outList.toArray(new Movement[outList.size()]) 
@@ -79,6 +76,7 @@ public class MovementOUTService {
             movement.setDateMovement(movementExcepted.getDateMovement());
             movement.setStore(movementExcepted.getStore());
 
+            System.out.println(remnants[i].getQuantity());
             if (remnants[i].getQuantity()>=quantityTarget) 
             {
                 movement.setUnitPrice(remnants[i].getUnitPrice());
@@ -87,7 +85,7 @@ public class MovementOUTService {
 
                 return possibleOut.toArray(new Movement[possibleOut.size()]);
             }
-            else
+            else if( remnants[i].getQuantity()!=0)
             {
                 movement.setUnitPrice(remnants[i].getUnitPrice());
                 movement.setQuantity(remnants[i].getQuantity() * -1);

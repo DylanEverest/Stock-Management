@@ -29,9 +29,8 @@ public class Remnant
 
         try {
             for (int i = 0; i < out.length; i++) {
-
             
-                if (out[i].getUnitPrice().doubleValue() <= list.get(entryIndex).getUnitPrice().doubleValue()) 
+                if (out[i].getQuantity().doubleValue() *-1 <= list.get(entryIndex).getQuantity().doubleValue()) 
                 {
                     list.get(entryIndex).setQuantity(list.get(entryIndex).getQuantity()+out[i].getQuantity());
                 }
@@ -44,7 +43,6 @@ public class Remnant
             }
                 
         } catch (Exception e) {
-            System.out.println("TAY");
             throw e ;
         }
 

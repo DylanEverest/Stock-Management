@@ -34,7 +34,7 @@ public class StockStatusDTO {
         setInitialQuantity(stockStatusModel.getInitialQuantity());
         setFinalQuantity(stockStatusModel.getFinalQuantity());
         setPriceValue(stockStatusModel.getPriceValue());
-
+        setStore(stockStatusModel.getStore());
     }
 
     public Timestamp getBeginDate() {

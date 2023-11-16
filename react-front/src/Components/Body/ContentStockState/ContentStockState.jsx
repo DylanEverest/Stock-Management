@@ -9,7 +9,7 @@ import Table from "../../Constants/Table/Table";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 export default function ContentStockState(props) 
 {
-    const tableData= DataStockState();
+    const tableData= [];
     
     return(
         <div class="page-content d-flex align-items-stretch">
@@ -28,7 +28,7 @@ export default function ContentStockState(props)
 
                             <Table  columnHeaders={["Date début", "Date fin", "Article", "Magasin", "Quantité initiale", "Quantité finale","Reste"]} 
                                     tableData={tableData}
-                                    form ={["Date début", "Date fin", "Article", "Magasin"]} 
+                                    form ={["beginDate", "endDate", "article", "store"]} 
                                     />                                
                         </div>
 
