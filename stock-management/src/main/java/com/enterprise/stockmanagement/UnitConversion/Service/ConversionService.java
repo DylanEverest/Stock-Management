@@ -19,6 +19,8 @@ public class ConversionService {
 
     public void conversion (Movement model ,String unitDefault) throws Exception
     {
+        if( model.getArticles().getUnit().getName().equalsIgnoreCase(unitDefault)) return ; 
+
         Double factor = getFactor(model.getArticles().getUnit(), unitDefault) ;
 
         if (factor == null) {
