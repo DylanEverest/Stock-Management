@@ -23,37 +23,37 @@ public class UnitController
     private CRUDUnit crudUnit ;
 
     @Autowired
-    private UnitDTO unitDTO ;
+    private UnitDTO unitsDTO ;
 
 
-    @GetMapping(path = "/unit")
+    @GetMapping(path = "/units")
     public UnitDTO getUnits()
     {
-        List<Unit> unit = crudUnit.getUnitList() ;
-        unitDTO.setUnitAsList(unit);
-        return unitDTO ;
+        List<Unit> units = crudUnit.getUnitList() ;
+        unitsDTO.setUnitAsList(units);
+        return unitsDTO ;
     }
 
-    @GetMapping(path = "/unit/{id}")
+    @GetMapping(path = "/units/{id}")
     public UnitDTO getUnitsById(@PathVariable("id") final Integer id)
     {
-        Unit unit = crudUnit.getUnitByID(Integer.valueOf(id)) ;
-        unitDTO.setUnit(unit) ;
+        Unit units = crudUnit.getUnitByID(Integer.valueOf(id)) ;
+        unitsDTO.setUnit(units) ;
 
-        return unitDTO ;
+        return unitsDTO ;
     }
 
-    @PostMapping(path = "/unit")
-    public UnitDTO saveUnit(@RequestBody UnitDTO unitDTO)
+    @PostMapping(path = "/units")
+    public UnitDTO saveUnit(@RequestBody UnitDTO unitsDTO)
     {
         try {
-            crudUnit.postUnit(unitDTO.getUnit());
+            crudUnit.postUnit(unitsDTO.getUnit());
             
         } catch (Exception e) {
-            unitDTO.setErrors(e.getMessage());
+            unitsDTO.setErrors(e.getMessage());
         }
 
-        return unitDTO;
+        return unitsDTO;
 
     }    
     

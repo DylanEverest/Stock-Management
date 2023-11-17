@@ -14,7 +14,7 @@ public class UnitDTO
 
     String errors ;
 
-    @Autowired
+    // @Autowired
     Unit articles ;
 
     public void setUnitAsList(List<Unit> list)
