@@ -9,13 +9,13 @@ export default function Units() {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get('/units');
-        // console.log(response.data);
+
 
         // Check if listMagasins is present in the API response
-        const listUnits = response.data.listUnits || [];
+        const listUnits = response.data.listUnit || [];
 
         // Extract the magasin names from listMagasins
-        const unitsNames = listUnits.map(units => units.unitsName);
+        const unitsNames = listUnits.map(units => units.name);
 
         // Update the state with the extracted magasin names
         setUnits(unitsNames);

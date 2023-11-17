@@ -34,7 +34,7 @@ export default function FormOutStock() {
       movementDate: formData.date ,
       article: formData.article,
       store: formData.store,
-      unit:formData.unit
+      unit:formData.units
     };
 
 
