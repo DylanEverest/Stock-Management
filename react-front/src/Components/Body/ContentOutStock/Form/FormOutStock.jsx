@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Axios from '../../../../Services/APISERVICE/AXIOS/AxiosAPI';
 import Articles from '../../../../Services/DataForms/Articles/Articles';
 import Magasins from '../../../../Services/DataForms/Magasins/Magasins';
+import Units from '../../../../Services/DataForms/Units/Units';
 import SubmitButton from '../../../Constants/Buttons/SubmitButtons';
 import DateInput from '../../../Constants/FormTools/DateInput';
 import SelectForm from '../../../Constants/FormTools/Select';
@@ -13,6 +14,7 @@ export default function FormOutStock() {
     date: '',
     article: '',
     store: '',
+    unit : ''
   });
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -32,6 +34,7 @@ export default function FormOutStock() {
       movementDate: formData.date ,
       article: formData.article,
       store: formData.store,
+      unit:formData.unit
     };
 
 
@@ -87,6 +90,8 @@ export default function FormOutStock() {
 
 
           <SelectForm label={'Magasins'} option={Magasins()} name="store" onChange={handleChange} />
+
+          <SelectForm label= {'units'} option ={Units()} name="units" onChange={handleChange} />
 
           <div className="text-right">
             <SubmitButton />
