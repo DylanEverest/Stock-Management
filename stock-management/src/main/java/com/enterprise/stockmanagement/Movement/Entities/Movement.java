@@ -51,7 +51,7 @@ public class Movement
     }
 
 
-    public void setQuantity(String quantity) throws QuantityException ,NumberFormatException{
+    public void setQuantity(String quantity ) throws QuantityException ,NumberFormatException{
         Double value = Double.valueOf(quantity) ;
         if (value <=0) {
          throw new QuantityException("Quantity must be positive");   

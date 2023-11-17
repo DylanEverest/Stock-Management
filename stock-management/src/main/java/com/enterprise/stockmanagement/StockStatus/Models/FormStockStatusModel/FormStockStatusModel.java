@@ -48,7 +48,7 @@ public class FormStockStatusModel
         setEndDate(timestamp2);
     }
 
-    private void setBeginDate(Timestamp beginDate) {
+    public void setBeginDate(Timestamp beginDate) {
 
         this.beginDate = beginDate;
     }

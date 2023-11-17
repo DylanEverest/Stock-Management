@@ -9,7 +9,7 @@ export default function Articles() {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get('/articles');
-        console.log(response.data);
+        // console.log(response.data);
 
         // Check if listArticles is present in the API response
         const listArticles = response.data.listArticles || [];

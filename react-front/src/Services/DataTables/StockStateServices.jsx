@@ -1,6 +1,7 @@
-export default function DataStockState(props) 
+export default function DataStockState() 
 {
-    const tableData = [
+    const tableData = 
+    [
         {
             id: 1,
             "Date début": "2023-01-01",
@@ -8,6 +9,7 @@ export default function DataStockState(props)
             Article: "Article 1",
             Magasin: "Magasin A",
             "Quantité initiale": 100,
+            "Quantité finale": 100,
             Reste: 50,
         },
         {
@@ -16,7 +18,8 @@ export default function DataStockState(props)
             "Date fin": "2023-02-15",
             Article: "Article 2",
             Magasin: "Magasin B",
-            "Quantité initiale": 150,
+            "Quantité initiale": 100,
+            "Quantité finale": 150,
             Reste: 75,
         },
         // Ajoutez d'autres objets de données ici

@@ -7,6 +7,8 @@ public class FormMovementDTO
     private String movementDate;
 
     private String quantity;
+    
+    private String unit ;
 
     private String article ;
 
@@ -62,6 +64,14 @@ public class FormMovementDTO
 
     public void setUnitPrice(String unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
     
 }

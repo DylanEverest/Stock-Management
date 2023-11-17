@@ -1,6 +1,5 @@
 /* eslint-disable react/style-prop-object */
 
-import DataStockState from "../../../Services/DataTables/StockStateServices";
 import ContentHeader from "../../Constants/ContentHeader/ContentHeader";
 import Sidebar from "../../Constants/Siderbar/Sidebar";
 import Table from "../../Constants/Table/Table";
@@ -9,7 +8,7 @@ import Table from "../../Constants/Table/Table";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 export default function ContentStockState(props) 
 {
-    const tableData= DataStockState();
+    const tableData= [];
     
     return(
         <div class="page-content d-flex align-items-stretch">
@@ -26,7 +25,10 @@ export default function ContentStockState(props)
 
                         <div class="col-xl-12">
 
-                            <Table columnHeaders={["Date début", "Date fin", "Article", "Magasin", "Quantité initiale", "Reste"]} tableData={tableData}/>                                
+                            <Table  columnHeaders={["Date début", "Date fin", "Article", "Magasin", "Quantité initiale", "Quantité finale","Reste"]} 
+                                    tableData={tableData}
+                                    form ={["beginDate", "endDate", "article", "store"]} 
+                                    />                                
                         </div>
 
                     </div>

@@ -12,6 +12,7 @@ import com.enterprise.stockmanagement.Movement.Entities.Movement;
 import com.enterprise.stockmanagement.Movement.Service.in.MovementINService;
 import com.enterprise.stockmanagement.Movement.Service.out.MovementOUTService;
 import com.enterprise.stockmanagement.Store.Services.CRUDStore;
+import com.enterprise.stockmanagement.UnitConversion.Service.ConversionService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000") // Autoriser les requêtes depuis ce domaine
@@ -24,6 +25,8 @@ public class MovementController {
     @Autowired CRUDArticles articlesService ;
 
     @Autowired CRUDStore storeService;
+
+    @Autowired ConversionService conversionService ;
 
 
     @PostMapping("/in")
@@ -61,6 +64,11 @@ public class MovementController {
             movementModel.setStore(storeService.getByName(formMovementDTO.getStore()));
             movementModel.setMethodType(1);
             movementModel.setQuantity((formMovementDTO.getQuantity()));
+            // appel a un service pour faire la conversion
+            conversionService.conversion(movementModel ,formMovementDTO.getUnit());
+
+            System.out.println(movementModel.getQuantity());           
+
 
             movementOUTService.out(movementModel) ;
             

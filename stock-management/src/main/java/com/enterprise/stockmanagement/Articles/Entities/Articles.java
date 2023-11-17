@@ -2,6 +2,8 @@ package com.enterprise.stockmanagement.Articles.Entities;
 
 import org.springframework.stereotype.Component;
 
+import com.enterprise.stockmanagement.UnitConversion.entity.Unit;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,6 +31,9 @@ public class Articles
 
     @ManyToOne(optional = false ,fetch = FetchType.EAGER)
     private MethodType methodType ;
+
+    @ManyToOne(optional = false ,fetch = FetchType.EAGER)
+    private Unit unit ;
 
 
 
@@ -62,5 +67,13 @@ public class Articles
 
     public void setFamily(String family) {
         this.family = family;
+    }
+
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
     }
 }
