@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Axios from '../../../Services/APISERVICE/AXIOS/AxiosAPI';
 
 export default function Table(props) {
-    const { formData, handleSubmit, handleInputChange, responseData } = DataHandler();
+    const { formData, handleSubmit, handleInputChange, responseData ,errorMessage } = DataHandler();
 
     return (
         <div className="widget has-shadow">
@@ -10,6 +10,11 @@ export default function Table(props) {
                 <h4>Border</h4>
             </div>
             <div className="widget-body">
+                {errorMessage && (
+                <div className="alert alert-danger" role="alert">
+                {errorMessage}
+                </div>
+            )}
                 <div className="table-responsive">
                     <form onSubmit={handleSubmit}>
                         <table className="table table-bordered mb-0">
@@ -79,6 +84,9 @@ function DataHandler() {
         store: ''
     });
 
+    const [errorMessage, setErrorMessage] = useState('');
+
+
     const [responseData, setResponseData] = useState(null);
 
     const handleInputChange = (e) => {
@@ -95,6 +103,12 @@ function DataHandler() {
             const response = await axiosInstance.post('/stockStatus', formData);
             setResponseData(response.data);
             console.log(response.data); // Gérer la réponse comme nécessaire
+            if (response.data.errors !== null) {
+                setErrorMessage(response.data.errors);
+              } else {
+                // Réinitialise le message d'erreur s'il n'y a pas d'erreurs
+                setErrorMessage('');
+            }
         } catch (error) {
             console.error('Une erreur s\'est produite lors de la soumission du formulaire', error);
         }
@@ -105,5 +119,6 @@ function DataHandler() {
         handleSubmit,
         handleInputChange,
         responseData,
+        errorMessage
     };
 }
