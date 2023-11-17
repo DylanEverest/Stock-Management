@@ -20,7 +20,7 @@ public class Conversion
     @ManyToOne(optional = false ,fetch = FetchType.EAGER)
     private Unit unitDestination ; // g
 
-    private double factor ; // 1000
+    private Double factor ; // 1000
 
 
 
@@ -48,13 +48,14 @@ public class Conversion
         this.unitDestination = unitDestination;
     }
 
-    public double getFactor() {
+    public Double getFactor() {
         return factor;
     }
 
-    public void setFactor(double factor) {
+    public void setFactor(Double factor) {
         this.factor = factor;
     }
+
 
     // 1kg -> 1000 g
 }

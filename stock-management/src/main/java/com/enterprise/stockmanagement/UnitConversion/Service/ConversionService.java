@@ -43,7 +43,10 @@ public class ConversionService {
         }
         
         // alaina ilay facteur de conversion
-        Double factor = conversionRepository.findFactor(unitTarget.getUnitId(),defaultUnit.getUnitId()) ;
+        System.out.println(unitTarget.getUnitId());
+        System.out.println(defaultUnit.getUnitId());
+        System.out.println("--");
+        Double factor = conversionRepository.findFactor(defaultUnit.getUnitId() ,unitTarget.getUnitId()) ;
 
 
 

@@ -67,7 +67,7 @@ public class MovementController {
             // appel a un service pour faire la conversion
             conversionService.conversion(movementModel ,formMovementDTO.getUnit());
 
-            
+            System.out.println(movementModel.getQuantity());           
 
 
             movementOUTService.out(movementModel) ;
