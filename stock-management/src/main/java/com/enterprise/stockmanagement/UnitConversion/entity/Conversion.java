@@ -17,6 +17,7 @@ public class Conversion
     @ManyToOne(optional = false ,fetch = FetchType.EAGER)
     private Unit unitSource ; // example 1Kg
 
+    @ManyToOne(optional = false ,fetch = FetchType.EAGER)
     private Unit unitDestination ; // g
 
     private double factor ; // 1000
