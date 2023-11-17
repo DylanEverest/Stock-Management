@@ -14,6 +14,7 @@ import com.enterprise.stockmanagement.Movement.Entities.view.MovementView;
 @Repository
 public interface MovementViewRepository extends JpaRepository< MovementView,Integer>{
  
+    @Query(value = "SELECT * FROM movementview ORDER BY date_movement ASC" ,nativeQuery = true)
     List<MovementView> findAllByMethodType (@Param("methodType") Integer methodType) ;
 
 
